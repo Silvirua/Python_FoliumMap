@@ -27,3 +27,6 @@ uni_map.html   (해당 파일은 위의 .py 파일 결과물)
 
 Folium-Map2.py (해당 파일은 ipynb 파일에서 수정된 파일이므로 어색할 수 있음)
 Folium-Map3.py (해당 파일은 ipynb 파일에서 수정된 파일이므로 어색할 수 있음)
+
+
+.py 파일은 original 에 게시할 예정.
