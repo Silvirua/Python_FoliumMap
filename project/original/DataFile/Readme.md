@@ -13,8 +13,8 @@ skorea_municipalities_geo_simple.json
 대학교주소좌표.xlsx
 학교개황.xlsx
 
-전국 대학교 위치 데이터.py (해당 파일은 ipynb 파일에서 수정된 파일이므로, 어색할 수 있음)
-전국 대학교 위치 마커 표시.py (해당 파일은 ipynb 파일에서 수정된 파일이므로, 어색할 수 있음)
+전국 대학교 위치 데이터.py 
+전국 대학교 위치 마커 표시.py (
 
 f_map.html     (해당 파일은 위의 .py 파일 결과물)
 uni_map.html   (해당 파일은 위의 .py 파일 결과물)
@@ -25,8 +25,8 @@ uni_map.html   (해당 파일은 위의 .py 파일 결과물)
 전국고등학교위치데이터.xlsx
 학교주소좌표.csv
 
-Folium-Map2.py (해당 파일은 ipynb 파일에서 수정된 파일이므로 어색할 수 있음)
-Folium-Map3.py (해당 파일은 ipynb 파일에서 수정된 파일이므로 어색할 수 있음)
+Folium-Map2.py 
+Folium-Map3.py 
 
 
-.py 파일은 original 에 게시할 예정.
+.ipynb 파일은 original 에 게시할 예정.
