@@ -49,3 +49,36 @@ modifi_data = df[((df['시도'] != df['시군구'] | (df['시도'] == '세종특
 
 # 칼럼 재정렬
 modifi_data = modifi_data[['시도', '시군구', '성별', '연령별', '인구수']]
+
+
+# 3. 방대한 데이터 통합 작업 : 나이
+modifi_data['나이'] = modifi_data['연령별'].str.extract(r'(\d)').astype(float)
+modifi_data = modifi_data.dropna(subset=['나이']).copy()
+
+# 나이시작점과 나이끝점 지정
+s_age = (modifi_data['나이'] // 5 * 5).astype(int)
+e_age = (s_age + 4).astype(int)
+
+# 연령대 묶기
+modifi_data['연령대'] = s_age.astype(str) + '~' + e_age.astype(str) + "세"
+df_pivot = modifi_data.pivot_table(
+  index=['시도', '시군구', '성별],
+  columns='연령대',
+  values='인구수',
+  aggfunc='sum'
+).reset_index()
+df_pivot.fillna(0, inplace=True)
+
+# lambda 활용 columns 재배치
+fixed_cols = ['시도', '시군구', '성별']
+age_cols = [c for c in df_pivot.columns if c not in fixed_cols]
+
+# 나이 columns에서 ~ 뒤를 제외 하고 계산. 즉, 20~24세 부분에서 20만 처리
+age_cols.sort(key=lambda x: int(x.split('~')[0]))
+
+# 합치기
+df_pivot = df_pivot[fixed_cols + age_cols]
+
+
+# 4. 파일 저장
+df_pivot.to_csv('../Modifi_Data.csv', index=False, encoding='utf-8)
